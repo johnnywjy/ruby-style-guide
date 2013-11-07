@@ -99,11 +99,7 @@
     class FooError < StandardError
     end
 
-<<<<<<< HEAD
-    # 好
-=======
     # 勉强可以
->>>>>>> f71065da7ba3d09d012807f66a135fbb9ebcc3a9
     class FooError < StandardError; end
 
     # 好
@@ -828,11 +824,7 @@
     end
     ```
 
-<<<<<<< HEAD
-* 不要在条件表达式里使用 `=` （赋值）的返回值。
-=======
 * 不要在条件表达式里使用 `=` （赋值）的返回值除非条件表达式在圆括号内被赋值。这是一个相当流行的 ruby 方言，有时被称为 *safe assignment in condition*。
->>>>>>> f71065da7ba3d09d012807f66a135fbb9ebcc3a9
 
     ```Ruby
     # 差 (还会有个警告)
@@ -841,11 +833,7 @@
       ...
     end
 
-<<<<<<< HEAD
-    # 差 (还会有个警告)
-=======
     # 差 (MRI 仍会抱怨, 但 RuboCop 不会)
->>>>>>> f71065da7ba3d09d012807f66a135fbb9ebcc3a9
     if v = array.grep(/foo/)
       do_something(v)
       ...
@@ -889,8 +877,6 @@
     some_string =~ /something/
     ```
 
-<<<<<<< HEAD
-=======
 * 避免使用 Perl 风格的特殊变量（像是 `$:`、`$;` 等）。它们看起来非常神秘，除非用于单行脚本，否则不鼓励使用。使用 `English` 库提供的友好别名。
 
     ```Ruby
@@ -902,7 +888,6 @@
     $LOAD_PATH.unshift File.dirname(__FILE__)
     ```
 
->>>>>>> f71065da7ba3d09d012807f66a135fbb9ebcc3a9
 * 永远不要在方法名与左括号之间放一个空格。
 
     ```Ruby
@@ -1196,10 +1181,6 @@
     ```
 
 * 判断式方法的名字（返回布尔值的方法）应以问号结尾。 (例如： `Array#empty?` )
-<<<<<<< HEAD
-* 有潜在 *危险性* 的方法，若此 *危险* 方法有安全版本存在时，应以安全版本名加上惊叹号结尾（例如：改动 `self` 或参数、 `exit!` 等等方法）。
-=======
->>>>>>> f71065da7ba3d09d012807f66a135fbb9ebcc3a9
 
 * 有潜在 * 危险性 * 的方法，若此 * 危险 * 方法有安全版本存在时，应以安全版本名加上惊叹号结尾（例如：改动 `self` 或参数、 `exit!` （不会向 `exit` 那样运行 finalizers）, 等等方法）。
 
@@ -1250,21 +1231,15 @@
 
 * 在短的区块使用 `reduce` 时，把参数命名为 `|a, e|` (累加器，元素)
 
-<<<<<<< HEAD
-=======
 * 在定义二元操作符时，把参数命名为 `other` （`<<` 与 `[]` 是这条规则的例外，因为它们的语义不同）。
 
->>>>>>> f71065da7ba3d09d012807f66a135fbb9ebcc3a9
     ```Ruby
     def +(other)
       # body omitted
     end
     ```
-<<<<<<< HEAD
-=======
 
 * 倾向使用 `map` 而不是 `collect` ， `find` 而不是 `detect` ， `select` 而不是 `find_all` ， `reduce` 而不是 `inject` 以及 `size` 而不是 `length` 。这不是一个硬性要求；如果使用别名增加了可读性，使用它没关系。这些有押韵的方法名是从 Smalltalk 继承而来，在别的语言不通用。鼓励使用 `select` 而不是 `find_all` 的理由是它跟 `reject` 搭配起来是一目了然的。
->>>>>>> f71065da7ba3d09d012807f66a135fbb9ebcc3a9
 
 * 倾向使用 `flat_map` 而不是 `map` + `flatten` 的组合。
   这并不适用于深度大于 2 的数组，举个例子，如果 `users.first.songs == ['a', ['b', 'c']]` ，则使用 `map + flatten` 的组合，而不是使用 `flat_map` 。
@@ -2235,21 +2210,11 @@
 
 ### RuboCop
 
-<<<<<<< HEAD
-[RuboCop](https://github.com/bbatsov/rubocop) 是一个基于本指南的 Ruby 代码风格检查工具。 RuboCop 涵盖了本指南相当大的部分，支持 MRI 1.9 和 MRI 2.0，而且有很好的 Emacs 整合性。
-
-### RubyMine
-
-[RubyMine](http://www.jetbrains.com/ruby/) 的代码检查是
-[部分基于](http://confluence.jetbrains.com/display/RUBYDEV/RubyMine+Inspections)
-本指南的。
-=======
 [RuboCop](https://github.com/bbatsov/rubocop) 是一个基于本指南的 Ruby 代码风格检查工具。 RuboCop 涵盖了本指南相当大的部分，支持 MRI 1.9 和 MRI 2.0，而且与 Emacs 整合良好。
 
 ### RubyMine
 
 [RubyMine](http://www.jetbrains.com/ruby/) 的代码检查是 [部分基于](http://confluence.jetbrains.com/display/RUBYDEV/RubyMine+Inspections) 本指南的。
->>>>>>> f71065da7ba3d09d012807f66a135fbb9ebcc3a9
 
 # 贡献
 
